@@ -10,7 +10,7 @@ func formHandler(w http.ResponseWriter, r *http.Request){
 		fmt.Fprintf(w, "ParseForm() err: %v", err)
 		return
 	}
-	fmt.Fprintf(w, "POST request successful\n")
+	fmt.Fprintf(w,  "POST request successful\n")
 	name := r.FormValue("name")
 	address := r.FormValue("address")
 	fmt.Fprintf(w, "Name = %s\n", name)
@@ -26,7 +26,7 @@ func helloHandler(w http.ResponseWriter,r *http.Request){
 		http.Error(w, "method is not supported",http.StatusNotFound)
 		return
 	}
-	fmt.Fprintf(w, "hello")
+	fmt.Fprintf(w, "this is hello function ")
 
 }
 
@@ -37,7 +37,7 @@ func main(){
 	http.HandleFunc("/hello", helloHandler)
   
 	fmt.Printf("Starting the server at port 3030\n")
-	if err := http.ListenAndServe(":3030", nil); err != nil{
+	if err := http.ListenAndServe(":3030", nil); err != nil{     //// define port number 
 		log.Fatal(err)
 	}
 }
